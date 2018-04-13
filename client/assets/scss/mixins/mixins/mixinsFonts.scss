@@ -1,0 +1,24 @@
+@mixin serif-font() {
+  font-family: 'Lora', 'Times New Roman', serif;
+}
+
+@mixin sans-serif-font() {
+  font-family: 'Comic Sans MS', 'Microsoft Sans Serif', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+@mixin body-font() {
+  font-family: 'Playbill', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+@mixin heading-font() {
+  font-weight: 700;
+  font-family: 'American Typewriter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+@mixin tester-font {
+  font-family: 'Phosphate', 'Desdemona', 'Noteworthy', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+@mixin tester-font2 {
+  font-family: 'Desdemona', 'Noteworthy', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}

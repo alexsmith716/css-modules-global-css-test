@@ -1,0 +1,85 @@
+/// Bootstrap 4 configuration:
+// Bootstrap 4 is a major rewrite of the entire project.
+// Changes summarized below:
+// https://getbootstrap.com/docs/4.0/migration/
+// --------------------------------------------------------------------------------------------------
+
+
+// Font Awesome fonts
+
+$fa-font-path: "~font-awesome/fonts/";
+
+
+// --------------------------------------------------------------------------------------------------
+
+
+// Customize Bootstrap variables that get imported before the original Bootstrap variables (_variables.scss)
+// Original Bootstrap variables depend on the values defined here.
+// For example, _variables.scss contains:
+// $input-color: $gray !default;
+// This means you can define $input-color before we load _variables.scss
+
+@import "./preBootstrapCustomizations.scss";
+
+
+// --------------------------------------------------------------------------------------------------
+
+
+// Required Bootstrap variables
+
+// @import "../../../../node_modules/bootstrap/scss/_functions.scss";
+// @import "../../../../node_modules/bootstrap/scss/_variables.scss";
+// @import "../../../../node_modules/bootstrap/scss/_mixins.scss";
+
+// --------------------------------------------------------------------------------------------------
+
+
+// Loaded after bootstrap variables is loaded and before bootstrap is loaded
+// Modify a bootstrap variable based on the preBootstrapCustomizations value.
+// A good example of this is when you want to override a bootstrap variable to be based
+// on the default value of bootstrap. This is pretty specialized case. Thus, you normally
+// just override bootrap variables in preBootstrapCustomizations so that derived
+// variables will use your definition.
+// For example, in _variables.scss:
+// $input-height: (($font-size-base * $line-height) + ($input-padding-y * 2) + ($border-width * 2)) !default;
+// This means that you could define this yourself in preBootstrapCustomizations. Or you can do
+// this in bootstrapCustomizations to make the input height 10% bigger than the default calculation.
+// Thus you can leverage the default calculations.
+// $input-height: $input-height * 1.10;
+
+@import "./bootstrapCustomizations.scss";
+
+
+// --------------------------------------------------------------------------------------------------
+
+
+// Load Bootstrap v4
+
+@import "../../../../node_modules/bootstrap/scss/bootstrap.scss";
+
+
+// --------------------------------------------------------------------------------------------------
+
+
+// Font Awesome scss
+
+@import "../../../../node_modules/font-awesome/scss/font-awesome.scss";
+
+
+// --------------------------------------------------------------------------------------------------
+
+
+// Mixins
+
+@import "../mixins/mixins.scss";
+
+
+// --------------------------------------------------------------------------------------------------
+
+
+// Global App styles
+
+@import "../app/app.scss";
+
+
+// --------------------------------------------------------------------------------------------------

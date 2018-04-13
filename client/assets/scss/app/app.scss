@@ -1,0 +1,19 @@
+html,
+body {
+  height: 100%;
+}
+
+body {
+  // padding-top: 3.375rem;
+  padding-top: 54px;
+  @include tester-font2;
+  // font-size: 1rem;
+}
+
+hr {
+  border-color: $secondary;
+}
+
+hr.light {
+  border-color: $light;
+}

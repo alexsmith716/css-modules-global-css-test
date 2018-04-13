@@ -1,0 +1,49 @@
+// Customize Bootstrap variables that get imported before the original Bootstrap variables.
+// Thus original Bootstrap variables can depend on values from here.
+
+// --------------------------------------------------------------------------------------------------
+
+// cyan 2:            00EEEE
+// rosybrown 1:       FFC1C1
+// orange 1:          FFA500
+// yellow:            FFFF00
+// springgreen 1:     00EE76
+// slate gray:        C6E2FF
+// turquoise:         00F5FF
+// darkturquoise:     00CED1
+// darkolivegreen:    CAFF70
+// olive:             808000
+// salmon:            FF8C69
+// burlywood:         FFD39B
+// dodgerblue:        1E90FF
+// palevioletred:     DB7093
+// purple:            9B30FF
+// crimson:           DC143C
+// lightblue:         BFEFFF
+// lavender:          E6E6FA
+// azure:             F0FFFF
+// ivory:             FFFFF0
+// snow:              FFFAFA
+
+// Override default Bootstrap "$font-family-sans-serif" setting
+// $font-family-sans-serif: 'OpenSans-Light', Tahoma, "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+// $fonts-url-path: '../../fonts';
+
+// @font-face {
+//   font-family: 'OpenSans-Light';
+//   src: url('#{$fonts-url-path}/OpenSans-Light.ttf') format('truetype');
+// }
+
+// Other font size variables are based on this, so this goes into the
+// preBootstrapCustomizations.scss file.
+
+// $font-size-base: 16px;
+// $font-size-base: 2rem;
+// $body-bg: #E6E6FA;
+// $body-color: #FFFFF0;
+
+$navbar-dark-color: #C6E2FF;
+$input-color: #9B30FF;
+$input-border-color: #FFFF00;
+$dropdown-bg: #FFFAFA;  // <<<<<<<<<<<<< snow: FFFAFA
