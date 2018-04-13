@@ -1,18 +1,34 @@
 import express from 'express';
 import compression from 'compression';
+import morgan from 'morgan';
 import path from 'path';
-import webpack from 'webpack';
-import config from '../webpack.config.dev';
-import webpackDevMiddleware from 'webpack-dev-middleware';
-import webpackHotMiddleware from 'webpack-hot-middleware';
+// import serve from 'webpack-serve';
+// import webpackConfig from '../webpack/webpack.config.dev';
+
+process.on('unhandledRejection', (error, promise) => {
+  console.error('>>>>>> server > Unhandled Rejection at:', promise, 'reason:', error);
+});
 
 const app = new express();
 
-if (process.env.NODE_ENV === 'development') {
-  const compiler = webpack(config);
-  app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: config.output.publicPath }));
-  app.use(webpackHotMiddleware(compiler));
-}
+app.use((req, res, next) => {
+  console.log('>>>>>>>>>>>>>>>>> SERVER > $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ IN $$$$$$$$$$$$$$$$$$$$$$$$$$$$$');
+  console.log('>>>>>>>>>>>>>>>>> SERVER > __CLIENT__: ', __CLIENT__);
+  console.log('>>>>>>>>>>>>>>>>> SERVER > __SERVER__: ', __SERVER__);
+  console.log('>>>>>>>>>>>>>>>>> SERVER > __DEVELOPMENT__: ', __DEVELOPMENT__);
+  console.log('>>>>>>>>>>>>>>>>> SERVER > REQ.ip +++++++++: ', req.ip);
+  console.log('>>>>>>>>>>>>>>>>> SERVER > REQ.method +++++: ', req.method);
+  console.log('>>>>>>>>>>>>>>>>> SERVER > REQ.url ++++++++: ', req.url);
+  console.log('>>>>>>>>>>>>>>>>> SERVER > REQ.headers ++++: ', req.headers);
+  console.log('>>>>>>>>>>>>>>>>> SERVER > REQ.session ++++: ', req.session);
+  return next();
+});
+
+app.use(morgan('dev'));
+
+// if (process.env.NODE_ENV === 'development') {
+//   serve({ webpackConfig });
+// }
 
 import { Provider } from 'react-redux';
 import React from 'react';

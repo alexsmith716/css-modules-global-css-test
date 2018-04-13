@@ -10,16 +10,25 @@ const includePaths = path.resolve(__dirname, 'node_modules').toString();
 console.log('>>>>>>>>>>>> sassLoader > includePaths: ', includePaths);
 console.log('>>>>>>>>>>>> sassLoader > typeof includePaths: ', typeof includePaths);
 
-module.exports = (data, file) => {
-
-  try {
-    const s = sass.renderSync({data, file}).css.toString('utf8');
-    // return sass.renderSync({data, file}).css.toString('utf8');
-    //console.log('>>>>>>>>>>>>> sassLoader > SCSS: ', s);
-    return s;
-  } catch (e) {
-    console.log('>>>>>>>>>>>>> sassLoader > ERROR: ', e);
-    console.error(e);
-  }
-
+module.exports = function processSass(data, filename) {
+    var result;
+    result = sass.renderSync({
+        data: data,
+        file: filename
+    }).css;
+    return result.toString('utf8');
 };
+
+// module.exports = (data, file) => {
+// 
+//   try {
+//     const s = sass.renderSync({data, file}).css.toString('utf8');
+//     // return sass.renderSync({data, file}).css.toString('utf8');
+//     //console.log('>>>>>>>>>>>>> sassLoader > SCSS: ', s);
+//     return s;
+//   } catch (e) {
+//     console.log('>>>>>>>>>>>>> sassLoader > ERROR: ', e);
+//     console.error(e);
+//   }
+// 
+// };
