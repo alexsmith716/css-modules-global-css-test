@@ -2,12 +2,22 @@ import express from 'express';
 import compression from 'compression';
 import morgan from 'morgan';
 import path from 'path';
+const serve = require('webpack-serve');
+const config = require('../webpack/webpack.config.dev.js');
 // import serve from 'webpack-serve';
 // import webpackConfig from '../webpack/webpack.config.dev';
 
 process.on('unhandledRejection', (error, promise) => {
   console.error('>>>>>> server > Unhandled Rejection at:', promise, 'reason:', error);
 });
+
+if (process.env.NODE_ENV === 'development') {
+  console.log('>>>>>>>>>>> server > index.js <<<<<<<<<<<<<');
+  serve({ config });
+  //const compiler = webpack(config);
+  //app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: config.output.publicPath }));
+  //app.use(webpackHotMiddleware(compiler));
+};
 
 const app = new express();
 
@@ -37,7 +47,7 @@ import ReactDOM from 'react-dom/server';
 import StaticRouter from 'react-router-dom/StaticRouter';
 import { matchRoutes, renderRoutes } from 'react-router-config';
 import { matchPath } from 'react-router';
-import routes from '../client/routes';
+import routes from '../src/routes';
 
 app.use(compression());
 app.use('/static', express.static(path.resolve(__dirname, '../dist/client')));
@@ -57,7 +67,7 @@ const renderFullPage = (html) => {
       <body>
         <div id="root">${html}</div>
         <script src='${'/vendor.js'}'></script>
-        <script src='${'/app.js'}'></script>
+        <script src='${'/main.js'}'></script>
       </body>
       </body>
     </html>

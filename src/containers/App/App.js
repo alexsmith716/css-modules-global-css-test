@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { withRouter } from 'react-router'
+import { withRouter } from 'react-router';
 import { renderRoutes } from 'react-router-config';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 
 // import '../../assets/global.scss';
-import '../../assets/scss/global/global.scss';
+// import '../../src/assets/scss/global/global.scss';
 import styles from './styles.scss';
 
 class App extends Component {
